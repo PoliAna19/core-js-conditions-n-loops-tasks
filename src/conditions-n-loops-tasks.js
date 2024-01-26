@@ -67,8 +67,11 @@ function getMaxNumber(a, b, c) {
  * {x: 1, y: 1}, {x: 2, y: 8} => false
  * {x: 1, y: 1}, {x: 2, y: 8} => false
  */
-function canQueenCaptureKing(/* queen, king */) {
-  throw new Error('Not implemented');
+function canQueenCaptureKing(queen, king) {
+  if (queen.x === king.x) return true;
+  if (queen.y === king.y) return true;
+  if (Math.abs(queen.x - king.x) === Math.abs(queen.y - king.y)) return true;
+  return false;
 }
 
 /**
@@ -89,8 +92,11 @@ function canQueenCaptureKing(/* queen, king */) {
  *  2, 2, 5   => false
  *  3, 0, 3   => false
  */
-function isIsoscelesTriangle(/* a, b, c */) {
-  throw new Error('Not implemented');
+function isIsoscelesTriangle(a, b, c) {
+  if (a === b && a + b > c && a > 0 && b > 0 && c > 0) return true;
+  if (a === c && a + c > b && a > 0 && b > 0 && c > 0) return true;
+  if (b === c && b + c > a && a > 0 && b > 0 && c > 0) return true;
+  return false;
 }
 
 /**
@@ -107,9 +113,30 @@ function isIsoscelesTriangle(/* a, b, c */) {
  *  10  => X
  *  26  => XXVI
  */
-function convertToRomanNumerals(/* num */) {
-  throw new Error('Not implemented');
-}
+/*function convertToRomanNumerals(num) {
+  const num
+  
+  const romanNum = {
+    30: "XXX",
+    20: "XX",
+    10: "X",
+    9: "IX",
+    8: "VIII",
+    7: "VII",
+    6: "VI",
+    5: "V",
+    4: "IV",
+    3: "III",
+    2: "II",
+    1: "I"
+  };
+  if (num > 0 && num <= 10 || num === 20 || num === 30) return romanNum.num;
+  
+
+  
+  return str;
+}*/
+
 
 /**
  * Converts a number to a string, replacing digits with words.
