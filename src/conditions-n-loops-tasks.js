@@ -433,8 +433,36 @@ function sortByAsc(arr) {
  *  '012345', 3 => '024135' => '043215' => '031425'
  *  'qwerty', 3 => 'qetwry' => 'qtrewy' => 'qrwtey'
  */
-function shuffleChar(/* str, iterations */) {
-  throw new Error('Not implemented');
+function shuffleChar(str, iterations) {
+  let newStr = str;
+  let iterat = 0;
+  do {
+    let leftArr = '';
+    let rigthArr = '';
+    for (let k = 0; k < newStr.length; k += 1) {
+      if (k % 2 === 0) {
+        leftArr += newStr.charAt(k);
+      } else {
+        rigthArr += newStr.charAt(k);
+      }
+    }
+    newStr = leftArr + rigthArr;
+    iterat += 1;
+  } while (newStr !== str);
+  const numberOfIterations = iterations % iterat;
+  for (let i = 0; i < numberOfIterations; i += 1) {
+    let leftArr = '';
+    let rigthArr = '';
+    for (let k = 0; k < newStr.length; k += 1) {
+      if (k % 2 === 0) {
+        leftArr += newStr.charAt(k);
+      } else {
+        rigthArr += newStr.charAt(k);
+      }
+    }
+    newStr = leftArr + rigthArr;
+  }
+  return newStr;
 }
 
 /**
